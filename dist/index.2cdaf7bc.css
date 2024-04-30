@@ -1,0 +1,123 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap";
+:root {
+  --primary-color-blue: #2563eb;
+  --secondary-color-blue: #598ef3;
+  --dark-color-blue: #475569;
+  --primary-color-pink: #d946ef;
+  --secondary-color-pink: #fae8ff;
+  --primary-color-text: #006aeb;
+  --background-color: #334155;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, "sans-serif";
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+h1 {
+  color: var(--primary-color-text);
+  margin-bottom: 35px;
+  font-family: Rubik Mono One, "sans-serif";
+  font-size: 60px;
+  font-weight: 400;
+}
+
+.grid-container {
+  background-color: var(--background-color);
+  cursor: pointer;
+  grid-template-rows: repeat(50, 1fr);
+  grid-template-columns: repeat(50, 1fr);
+  gap: 2px;
+  width: 1000px;
+  height: 1000px;
+  margin: 30px 10px;
+  display: grid;
+}
+
+.grid-item {
+  border: 2px solid var(--primary-color-text);
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.grid-item.active {
+  background-color: var(--secondary-color-pink);
+}
+
+.grid-item:hover {
+  background-color: var(--primary-color-pink);
+}
+
+.wall {
+  background-color: #302d2d;
+}
+
+button#generateMapButton {
+  background-color: var(--primary-color-blue);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+button#generateMapButton:hover {
+  background-color: var(--secondary-color-blue);
+}
+
+.spawn {
+  background-color: #1eff00;
+}
+
+.end {
+  background-color: red;
+}
+
+button#w1 {
+  background-color: var(--primary-color-blue);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0, 2);
+  z-index: 1;
+  background-color: #f1f1f1;
+  min-width: 205px;
+  display: none;
+  position: absolute;
+}
+
+.dropdown-content a {
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/*# sourceMappingURL=index.2cdaf7bc.css.map */

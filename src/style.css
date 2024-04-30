@@ -54,13 +54,20 @@ h1 {
 }
 
 .grid-item:hover{
-    background-color: var(--primary-color-pink);
+    background-color: #f00;
 }
 
 .wall {
-    background-color: #302d2d;
+    background-color: var(--primary-color-pink);
 }
 
+.neighbour {
+    background-color: #ffff00;
+}
+
+.cc {
+    background-color: #dddddd;
+}
 
 button#generateMapButton {
     margin-top: 20px; 

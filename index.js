@@ -15,11 +15,32 @@ let startY, startX, itemId, itemIdArray, endId
 let value
 let selectedPercentage = 20;
 
+
+let toastBox = document.getElementById('toastBox');
+
+function popup(errormsg) {
+    let toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.innerHTML = errormsg;
+    toastBox.appendChild(toast);
+
+    if (errormsg.includes('Error')) {
+        toast.classList.add('error');
+    }
+
+    setTimeout(() => {
+        toast.remove();
+    }, 1500)
+}
+
 gridItems.forEach(function (item) {
     item.addEventListener('click', function () {
 
         if (item.classList.contains("wall")) {
-            alert("CANT PLACE ON A WALL")
+
+            let errormsg = "    ❌ | Error: Cant place on a wall.";
+            
+            popup(errormsg);
             return;
         }
         var previousSpawn = document.querySelector('.spawn');
@@ -64,24 +85,7 @@ gridItems.forEach(function (item) {
         } else {
             console.log("❌ | Error: Path not found.")
 
-            let toastBox = document.getElementById('toastBox');
-
             let errormsg = "    ❌ | Error: Path not found.";
-
-            function popup(errormsg) {
-                let toast = document.createElement('div');
-                toast.classList.add('toast');
-                toast.innerHTML = errormsg;
-                toastBox.appendChild(toast);
-
-                if (errormsg.includes('Error')) {
-                    toast.classList.add('error');
-                }
-
-                setTimeout(() => {
-                    toast.remove();
-                }, 1500)
-            }
 
             popup(errormsg);
         }

@@ -63,11 +63,10 @@ gridItems.forEach(function (item) {
             visualizePath(result)
         } else {
             console.log("❌ | Error: Path not found.")
-            alert("❌ | Error: Path not found.");
 
             let toastBox = document.getElementById('toastBox');
 
-            let errormsg = "❌ | Error: Path not found.";
+            let errormsg = "    ❌ | Error: Path not found.";
 
             function popup(errormsg) {
                 let toast = document.createElement('div');

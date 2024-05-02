@@ -231,12 +231,7 @@ function astar(grid, start, end) {
 
             if (grid[currentNode.x][currentNode.y] === 1){
                 continue;
-            }
-
-            // Check if the neighbor is an obstacle
-            if (grid[neighbourY][neighbourX] === 1) {
-                continue;
-            }
+            }            
 
             // Generate a unique key for the neighbor node
             const neighborKey = `${neighbourX},${neighbourY}`;

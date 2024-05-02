@@ -63,6 +63,7 @@ h1 {
 
 .neighbour {
     background-color: #ffff00;
+    transition: easy 0.5s;
 }
 
 .cc {

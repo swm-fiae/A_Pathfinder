@@ -64,6 +64,27 @@ gridItems.forEach(function (item) {
         } else {
             console.log("❌ | Error: Path not found.")
             alert("❌ | Error: Path not found.");
+
+            let toastBox = document.getElementById('toastBox');
+
+            let errormsg = "❌ | Error: Path not found.";
+
+            function popup(errormsg) {
+                let toast = document.createElement('div');
+                toast.classList.add('toast');
+                toast.innerHTML = errormsg;
+                toastBox.appendChild(toast);
+
+                if (errormsg.includes('Error')) {
+                    toast.classList.add('error');
+                }
+
+                setTimeout(() => {
+                    toast.remove();
+                }, 1500)
+            }
+
+            popup(errormsg);
         }
         console.log(result);
 
@@ -208,30 +229,30 @@ function astar(grid, start, end) {
         closedList.set(nodeKey, currentNode);
 
         const neighbours = [
-            {x: 0, y: -1},  // Up
-            {x: 0, y: 1},   // Down
-            {x: -1, y: 0},  // Left
-            {x: 1, y: 0},   // Right
-            {x: -1, y: -1}, // Up-left
-            {x: -1, y: 1},  // Down-left
-            {x: 1, y: -1},  // Up-right
-            {x: 1, y: 1},   // Down-right
+            { x: 0, y: -1 },  // Up
+            { x: 0, y: 1 },   // Down
+            { x: -1, y: 0 },  // Left
+            { x: 1, y: 0 },   // Right
+            { x: -1, y: -1 }, // Up-left
+            { x: -1, y: 1 },  // Down-left
+            { x: 1, y: -1 },  // Up-right
+            { x: 1, y: 1 },   // Down-right
         ];
 
         // Loop through each Neighbour of the currentNode
         for (const neighbour of neighbours) {
             const neighbourX = currentNode.x + neighbour.x;
             const neighbourY = currentNode.y + neighbour.y;
-            
+
 
             // Check if the neighbor is within the grid bounds
             if (neighbourX < 0 || neighbourY < 0 || neighbourX >= grid[0].length || neighbourY >= grid.length) {
                 continue;
             }
 
-            if (grid[currentNode.x][currentNode.y] === 1){
+            if (grid[currentNode.x][currentNode.y] === 1) {
                 continue;
-            }            
+            }
 
             // Generate a unique key for the neighbor node
             const neighborKey = `${neighbourX},${neighbourY}`;

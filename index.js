@@ -222,9 +222,14 @@ function astar(grid, start, end) {
         for (const neighbour of neighbours) {
             const neighbourX = currentNode.x + neighbour.x;
             const neighbourY = currentNode.y + neighbour.y;
+            
 
             // Check if the neighbor is within the grid bounds
             if (neighbourX < 0 || neighbourY < 0 || neighbourX >= grid[0].length || neighbourY >= grid.length) {
+                continue;
+            }
+
+            if (grid[currentNode.x][currentNode.y] === 1){
                 continue;
             }
 

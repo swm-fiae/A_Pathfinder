@@ -173,9 +173,13 @@ function visualizePath(path) {
             item.classList.remove("cc");
         }
     })
+    let delay = 0;
     for (const [x, y] of path) {
-        const resultString = x.toString() + "_" + y.toString(); // Reversed order of x and y
-        document.getElementById(resultString).classList.add("neighbour");
+        setTimeout((xCoord, yCoord) => {
+            const resultString = xCoord.toString() + "_" + yCoord.toString();
+            document.getElementById(resultString).classList.add("neighbour");
+        }, delay, x, y);
+        delay += 50;
     }
 }
 

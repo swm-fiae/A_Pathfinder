@@ -8,20 +8,30 @@
 </head>
 <body>
 
-<div class="grid-container" id="grid"></div>
-<button id="generateMapButton">Generate New Map</button>
+<div class="h">
+    <h1>A* Pathfinder</h1>
+</div>
+<div class="container1">
+    <div class="grid-container" id="grid"></div>
+</div>
+
+<div class="container2">
+    <button id="generateMapButton">Generate New Map</button>
+
+    <div class="dropdown">
+        <button id="w1">How much Walls in %</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="genMap(10)">10%</a>
+            <a href="#" onclick="genMap(20)">20%</a>
+            <a href="#" onclick="genMap(30)">30%</a>
+            <a href="#" onclick="genMap(40)">40%</a>
+            <a href="#" onclick="genMap(50)">50%</a>
+            <a href="#" onclick="genMap(60)">60%</a>
+            <a href="#" onclick="genMap(70)">70%</a>
+        </div>
+    </div>
+</div>
+
 <script src="index.js"></script>
-<div class ="dropdown">
-    <button id="w1">how much Walls in %</button>
-    <div class="dropdown-content">
-        <a href="#" onclick="genMap(10)">10%</a>
-        <a href="#" onclick="genMap(20)">20%</a>
-        <a href="#" onclick="genMap(30)">30%</a>
-        <a href="#" onclick="genMap(40)">40%</a>
-        <a href="#" onclick="genMap(50)">50%</a>
-        <a href="#" onclick="genMap(60)">60%</a>
-        <a href="#" onclick="genMap(70)">70%</a>
-    </div>
-    </div>
 </body>
 </html>

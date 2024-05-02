@@ -63,6 +63,7 @@ gridItems.forEach(function (item) {
             visualizePath(result)
         } else {
             console.log("❌ | Error: Path not found.")
+            alert("❌ | Error: Path not found.");
         }
         console.log(result);
 

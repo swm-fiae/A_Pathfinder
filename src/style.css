@@ -26,7 +26,8 @@ h1 {
     font-family: 'Rubik Mono One', 'sans-serif';
     font-weight: 400;
     font-size: 60px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+    margin-top: 20px;
     color: var(--primary-color-text);
 }
 
@@ -63,6 +64,7 @@ h1 {
 
 .neighbour {
     background-color: #ffff00;
+    transition: ease-in 0.5s;
 }
 
 .cc {
@@ -70,8 +72,9 @@ h1 {
 }
 
 button#generateMapButton {
-    margin-top: 20px; 
-    padding: 10px 20px; 
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 10px 20px;
     font-size: 16px; 
     background-color: var(--primary-color-blue);
     color: white;
@@ -122,3 +125,24 @@ button#w1 {
 }
 .dropdown-content a:hover{background-color:#ddd;}
 .dropdown:hover .dropdown-content{display:block;}
+
+.container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.h {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

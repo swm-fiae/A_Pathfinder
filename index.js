@@ -150,13 +150,13 @@ genMap();
 addStart()
 
 document.getElementById("generateMapButton").addEventListener("click", function () {
-
     clearGrid();
     genMap(selectedPercentage);
     addStart()
 });
 
 function clearGrid() {
+    deletePath()
     grid = [];
 }
 
@@ -293,6 +293,13 @@ function astar(grid, start, end) {
         }
     }
 
+    deletePath()
+
+    // If no path is found, return null
+    return null;
+}
+
+function deletePath(){
     let items = document.querySelectorAll('.grid-item');
 
     items.forEach(function (item) {
@@ -301,7 +308,4 @@ function astar(grid, start, end) {
             item.classList.remove("neighbour");
         }
     })
-
-    // If no path is found, return null
-    return null;
 }

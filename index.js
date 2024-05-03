@@ -164,7 +164,6 @@ function clearGrid() {
     grid = [];
 }
 
-// Function to visualize the path
 function visualizePath(path) {
     let items = document.querySelectorAll('.grid-item');
 
@@ -200,25 +199,18 @@ function heuristic(node, endNode) {
 }
 
 function astar(grid, start, end) {
-    // List of Nodes to be evaluated
     const openList = [];
-    // Map of Nodes that already been evaluated
     const closedList = new Map();
 
-    // Create Start Node and End Node
     const startNode = new Node(start[0], start[1]);
     const endNode = new Node(end[0], end[1]);
-    // Push the Start Node to the OpenNodes
     openList.push(startNode);
 
     while (openList.length > 0) {
-        // Sort the Array so that the Node with the lowest F cost is at the start
         openList.sort((nodeA, nodeB) => nodeA.f - nodeB.f);
 
-        // Get the Current element by retrieving the Node with the lowest F cost
         const currentNode = openList.shift();
-
-        // Check if the currentNode's coordinates match the end coordinates
+        
         if (currentNode.x === endNode.x && currentNode.y === endNode.y) {
             let path = [];
             let current = currentNode;
@@ -229,10 +221,8 @@ function astar(grid, start, end) {
             return path;
         }
 
-        // Generate a unique key for the current node
         const nodeKey = `${currentNode.x},${currentNode.y}`;
 
-        // Add the current node to the closed list
         closedList.set(nodeKey, currentNode);
 
         const neighbours = [
@@ -246,13 +236,10 @@ function astar(grid, start, end) {
             { x: 1, y: 1 },   // Down-right
         ];
 
-        // Loop through each Neighbour of the currentNode
         for (const neighbour of neighbours) {
             const neighbourX = currentNode.x + neighbour.x;
             const neighbourY = currentNode.y + neighbour.y;
 
-
-            // Check if the neighbor is within the grid bounds
             if (neighbourX < 0 || neighbourY < 0 || neighbourX >= grid[0].length || neighbourY >= grid.length) {
                 continue;
             }
@@ -261,30 +248,24 @@ function astar(grid, start, end) {
                 continue;
             }
 
-            // Generate a unique key for the neighbor node
             const neighborKey = `${neighbourX},${neighbourY}`;
 
-            // Check if the neighbor is already in the closed list
             if (closedList.has(neighborKey)) {
                 continue;
             }
 
-            // Calculate the tentative g cost for the neighbor
             const tentativeGCost = currentNode.g + 1;
 
-            // Check if the neighbor is already in the open list
             const existingIndex = openList.findIndex(node => node.x === neighbourX && node.y === neighbourY);
             if (existingIndex !== -1) {
-                // If this path is worse, skip
                 if (tentativeGCost >= openList[existingIndex].g) {
                     continue;
                 }
             }
 
-            // Create a new Node for the neighbor
             const neighborNode = new Node(neighbourX, neighbourY);
 
-            // This path is the best so far. Record it!
+
             neighborNode.parent = currentNode;
             neighborNode.g = tentativeGCost;
             neighborNode.h = heuristic(neighborNode, endNode);
@@ -296,7 +277,7 @@ function astar(grid, start, end) {
             let finalCord = cordx.toString() + "_" + cordy.toString();
 
             document.getElementById(finalCord).classList.add("cc");
-            // Add the neighbor to the open list
+
             openList.push(neighborNode);
         }
     }

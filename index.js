@@ -194,7 +194,6 @@ class Node {
 }
 
 function heuristic(node, endNode) {
-    // Manhattan distance heuristic
     return Math.abs(node.x - endNode.x) + Math.abs(node.y - endNode.y);
 }
 
@@ -284,7 +283,6 @@ function astar(grid, start, end) {
 
     deletePath()
 
-    // If no path is found, return null
     return null;
 }
 
